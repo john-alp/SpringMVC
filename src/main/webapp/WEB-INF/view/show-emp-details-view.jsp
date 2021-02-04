@@ -6,9 +6,13 @@
 <br>
 <br>
 
-<%--<h1>Your name: ${param.employeeName}</h1>--%>
-Your name: ${nameAttribute} ${description}
-
+<%--Обращаемся к геттерам--%>
+Your name: ${employee.name}
+<br>
+Your surname ${employee.surName}
+<br>
+Your salary ${employee.salary}
+<br>
 </body>
 
 </html>

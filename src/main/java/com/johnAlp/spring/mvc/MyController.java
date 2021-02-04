@@ -2,13 +2,14 @@ package com.johnAlp.spring.mvc;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import javax.servlet.http.HttpServletRequest;
 
 @Controller
-@RequestMapping("/employee") // для всех методов
+//@RequestMapping("/employee") // для всех методов
 public class MyController {
 
     @RequestMapping("/")
@@ -17,20 +18,19 @@ public class MyController {
     }
 
     @RequestMapping("/askDetails")
-    public String askEmployeeDetails() {
+    public String askEmployeeDetails(Model model) {
+        model.addAttribute("employee", new Employee());
+
         return "ask-emp-details-view";
     }
 
-//        @RequestMapping("/showDetails")
-//    public String showEmpDetails() {
-//        return "show-emp-details-view";
-//    }
     @RequestMapping("/showDetails")
-    public String showEmpDetails(HttpServletRequest request, Model model) {
-        String empName = request.getParameter("employeeName");
-        empName = "Mr." + empName;
-        model.addAttribute("nameAttribute", empName);
-        model.addAttribute("description", "May");
+    public String showEmpDetails(@ModelAttribute("employee") Employee employee, Model model) {  // работаем с нашим обьектом с данными
+
+        employee.setName(employee.getName() + "!!!");
+        employee.setSalary(employee.getSalary() * 10);
+
+        model.addAttribute(employee);
         return "show-emp-details-view";
     }
     // альтарнатива с @RequestParam
