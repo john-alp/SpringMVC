@@ -2,12 +2,8 @@
 <!DOCTYPE html>
 <html>
 <body>
-<h2>Dear Employee, you are Welcome!</h2>
-<br>
-<br>
-<br>
-
-<%--Обращаемся к геттерам--%>
+<h2>Dear Friend, your wishes will be fulfilled very soon!</h2>
+<br><br><br>
 Your name: ${employee.name}
 <br>
 Your surname: ${employee.surName}
@@ -21,15 +17,12 @@ Your car: ${employee.carBrand}
 Language(s):
 <ul>
     <c:forEach var="lang" items="${employee.languages}">
-
         <li> ${lang} </li>
-
     </c:forEach>
     <br>
 </ul>
-
+<br>
 Phone number: ${employee.phoneNumber}
-
+<br>
 </body>
-
 </html>

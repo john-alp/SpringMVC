@@ -2,11 +2,8 @@
 <html>
 <body>
 
-<h2>All will be well!</h2>
-<br>
-<br>
-
-<a href="askDetails">Please write your details</a>
-
+<h2>Make a wish!</h2>
+<br><br>
+<a href="askDetails"> please click me </a>
 </body>
 </html>

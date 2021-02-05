@@ -5,7 +5,7 @@ import javax.validation.constraints.*;
 import java.util.HashMap;
 import java.util.Map;
 
-public class Employee {
+public class Friend {
     @Size(min = 2, max = 30, message = " Sorry, name must be min 2 symbols, max 30 symbols")
     private String name;
     // @NotNull()
@@ -24,7 +24,7 @@ public class Employee {
     @Pattern(regexp = "\\d{3}-\\d{3}-\\d{2}-\\d{2}", message = "Please use pattern XXX-XXX-XX-XX")
     private String phoneNumber;
 
-    public Employee() {
+    public Friend() {
         if (departments == null) {
             departments = new HashMap<>();
             departments.put("Information Technology", "IT");
@@ -45,7 +45,7 @@ public class Employee {
         languageList.put("languages of the far north", "NO");
     }
 
-    public Employee(String name, String surName, int salary) {
+    public Friend(String name, String surName, int salary) {
         this.name = name;
         this.surName = surName;
         this.salary = salary;
@@ -131,12 +131,5 @@ public class Employee {
         this.phoneNumber = phoneNumber;
     }
 
-    @Override
-    public String toString() {
-        return "Employee{" +
-                "name='" + name + '\'' +
-                ", surName='" + surName + '\'' +
-                ", salary=" + salary +
-                '}';
-    }
+
 }
