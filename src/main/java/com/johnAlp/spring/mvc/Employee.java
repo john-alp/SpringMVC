@@ -1,11 +1,20 @@
 package com.johnAlp.spring.mvc;
 
+import org.springframework.web.bind.annotation.ModelAttribute;
+
+import javax.validation.constraints.*;
 import java.util.HashMap;
 import java.util.Map;
 
 public class Employee {
+    @Size(min = 2, message = "name must be min 2 symbols")
     private String name;
+    // @NotNull(message = "surname is required field")
+    // @NotEmpty(message = "surname is required field")
+    @NotBlank(message = "surname is required field")
     private String surName;
+    @Min(value = 500, message = "must be greater than 499")
+    @Max(value = 1000, message = "must be greater than 1001")
     private int salary;
     private String department;
     private Map<String, String> departments;
@@ -13,13 +22,15 @@ public class Employee {
     private Map<String, String> carBrands;
     private String[] languages;
     private Map<String, String> languageList;
+    @Pattern(regexp = "\\d{3}-\\d{2}-\\d{2}", message = "Please use pattern XXX-XX-XX")
+    private String phoneNumber;
 
     public Employee() {
         if (departments == null) {
             departments = new HashMap<>();
-            departments.put("IT","Information Technology");
-            departments.put("HR","Human Resources");
-            departments.put("Sales","Sales");
+            departments.put("IT", "Information Technology");
+            departments.put("HR", "Human Resources");
+            departments.put("Sales", "Sales");
         }
         carBrands = new HashMap<>();
         carBrands.put("BMW", "BMW");
@@ -108,6 +119,14 @@ public class Employee {
 
     public void setLanguageList(Map<String, String> languageList) {
         this.languageList = languageList;
+    }
+
+    public String getPhoneNumber() {
+        return phoneNumber;
+    }
+
+    public void setPhoneNumber(String phoneNumber) {
+        this.phoneNumber = phoneNumber;
     }
 
     @Override
