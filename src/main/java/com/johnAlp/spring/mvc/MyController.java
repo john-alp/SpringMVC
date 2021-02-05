@@ -18,12 +18,12 @@ public class MyController {
 
     @RequestMapping("/askDetails")
     public String askEmployeeDetails(Model model) {
-        model.addAttribute("employee", new Friend());
+        model.addAttribute("friend", new Friend());
         return "ask-emp-details-view";
     }
 
     @RequestMapping("/showDetails")
-    public String showEmpDetails(@Valid @ModelAttribute("employee") Friend employee
+    public String showEmpDetails(@Valid @ModelAttribute("friend") Friend employee
             , BindingResult bindingResult) {
         if(bindingResult.hasErrors()) {
             return "ask-emp-details-view";

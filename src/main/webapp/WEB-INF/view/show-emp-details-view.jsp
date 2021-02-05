@@ -4,25 +4,25 @@
 <body>
 <h2>Dear Friend, your wishes will be fulfilled very soon!</h2>
 <br><br><br>
-Your name: ${employee.name}
+Your name: ${friend.name}
 <br>
-Your surname: ${employee.surName}
+Your surname: ${friend.surName}
 <br>
-Your salary: ${employee.salary}
+Your salary: ${friend.salary}
 <br>
-Your department: ${employee.department}
+Your department: ${friend.department}
 <br>
-Your car: ${employee.carBrand}
+Your car: ${friend.carBrand}
 <br>
 Language(s):
 <ul>
-    <c:forEach var="lang" items="${employee.languages}">
+    <c:forEach var="lang" items="${friend.languages}">
         <li> ${lang} </li>
     </c:forEach>
     <br>
 </ul>
 <br>
-Phone number: ${employee.phoneNumber}
+Phone number: ${friend.phoneNumber}
 <br>
 </body>
 </html>

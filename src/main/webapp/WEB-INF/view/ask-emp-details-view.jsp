@@ -3,8 +3,9 @@
 <html>
 <body>
 <h2>Dear friend, please enter your details</h2>
+<p>english please</p>
 <br><br>
-<form:form action="showDetails" modelAttribute="employee">
+<form:form action="showDetails" modelAttribute="friend">
     Name <br><form:input path="name"/>
     <form:errors path="name"/>
     <br><br>
@@ -18,14 +19,14 @@
     <form:errors path="phoneNumber"/>
     <br><br>
     Scope of work <form:select path="department">
-    <form:options items="${employee.departments}"/>
+    <form:options items="${friend.departments}"/>
     </form:select>
     <br><br><br>
     Which car do you want?
-    <form:radiobuttons path="carBrand" items="${employee.carBrands}"/>
+    <form:radiobuttons path="carBrand" items="${friend.carBrands}"/>
     <br><br>
     What languages do you want to know?
-    <form:checkboxes path="languages" items="${employee.languageList}"/>
+    <form:checkboxes path="languages" items="${friend.languageList}"/>
     <br><br>
     <%--setters will work here--%>
     <input type="submit" value="OK!">

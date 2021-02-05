@@ -6,14 +6,20 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class Friend {
-    @Size(min = 2, max = 30, message = " Sorry, name must be min 2 symbols, max 30 symbols")
+    private final int MINSIZE = 2;
+    private final int MAXSIZE = 30;
+    private final int MINSALARY = 49999;
+    private final int MAXSALARY = 150001;
+    private final String PATTERNFORPHONE = "\\d{3}-\\d{3}-\\d{2}-\\d{2}";
+    @Size(min = MINSIZE, max = MAXSIZE, message = " Sorry, name must be min " + MINSIZE
+            + " symbols, max " + MAXSIZE + " symbols")
     private String name;
     // @NotNull()
     // @NotEmpty()
     @NotBlank(message = "Sorry, surname is required field")
     private String surName;
-    @Min(value = 30001, message = "must be greater than 30000")
-    @Max(value = 100001, message = "must be greater than 100000")
+    @Min(value = MINSALARY, message = "must be greater than " + MINSALARY)
+    @Max(value = MAXSALARY, message = "must be greater than " + MAXSALARY)
     private int salary;
     private String department;
     private Map<String, String> departments;
@@ -21,7 +27,7 @@ public class Friend {
     private Map<String, String> carBrands;
     private String[] languages;
     private Map<String, String> languageList;
-    @Pattern(regexp = "\\d{3}-\\d{3}-\\d{2}-\\d{2}", message = "Please use pattern XXX-XXX-XX-XX")
+    @Pattern(regexp = PATTERNFORPHONE, message = "Please use pattern XXX-XXX-XX-XX")
     private String phoneNumber;
 
     public Friend() {
@@ -41,11 +47,11 @@ public class Friend {
         languageList = new HashMap<>();
         languageList.put("English", "EN");
         languageList.put("Deutch", "DE");
-        languageList.put("French", "FR");
         languageList.put("languages of the far north", "NO");
+        languageList.put("China", "CH");
     }
 
-    public Friend(String name, String surName, int salary) {
+    public Friend(final String name, final String surName, final int salary) {
         this.name = name;
         this.surName = surName;
         this.salary = salary;
