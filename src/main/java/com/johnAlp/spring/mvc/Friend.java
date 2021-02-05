@@ -1,20 +1,19 @@
 package com.johnAlp.spring.mvc;
 
-import org.springframework.web.bind.annotation.ModelAttribute;
 
 import javax.validation.constraints.*;
 import java.util.HashMap;
 import java.util.Map;
 
 public class Employee {
-    @Size(min = 2, message = "name must be min 2 symbols")
+    @Size(min = 2, max = 30, message = " Sorry, name must be min 2 symbols, max 30 symbols")
     private String name;
-    // @NotNull(message = "surname is required field")
-    // @NotEmpty(message = "surname is required field")
-    @NotBlank(message = "surname is required field")
+    // @NotNull()
+    // @NotEmpty()
+    @NotBlank(message = "Sorry, surname is required field")
     private String surName;
-    @Min(value = 500, message = "must be greater than 499")
-    @Max(value = 1000, message = "must be greater than 1001")
+    @Min(value = 30001, message = "must be greater than 30000")
+    @Max(value = 100001, message = "must be greater than 100000")
     private int salary;
     private String department;
     private Map<String, String> departments;
@@ -22,25 +21,28 @@ public class Employee {
     private Map<String, String> carBrands;
     private String[] languages;
     private Map<String, String> languageList;
-    @Pattern(regexp = "\\d{3}-\\d{2}-\\d{2}", message = "Please use pattern XXX-XX-XX")
+    @Pattern(regexp = "\\d{3}-\\d{3}-\\d{2}-\\d{2}", message = "Please use pattern XXX-XXX-XX-XX")
     private String phoneNumber;
 
     public Employee() {
         if (departments == null) {
             departments = new HashMap<>();
-            departments.put("IT", "Information Technology");
-            departments.put("HR", "Human Resources");
+            departments.put("Information Technology", "IT");
+            departments.put("Human Resources", "HR");
             departments.put("Sales", "Sales");
+            departments.put("Cleaning service", "Cleaning");
         }
         carBrands = new HashMap<>();
         carBrands.put("BMW", "BMW");
-        carBrands.put("Audi", "Audi");
+        carBrands.put("Mazda", "Mazda");
         carBrands.put("Mercedes-Benz", "MB");
+        carBrands.put("Lada", "Lada");
 
         languageList = new HashMap<>();
         languageList.put("English", "EN");
         languageList.put("Deutch", "DE");
         languageList.put("French", "FR");
+        languageList.put("languages of the far north", "NO");
     }
 
     public Employee(String name, String surName, int salary) {
