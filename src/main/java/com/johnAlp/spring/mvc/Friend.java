@@ -137,5 +137,4 @@ public class Friend {
         this.phoneNumber = phoneNumber;
     }
 
-
 }
